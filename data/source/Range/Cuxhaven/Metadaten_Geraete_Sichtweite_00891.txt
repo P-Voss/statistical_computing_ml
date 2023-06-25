@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+891;Cuxhaven;8.71;53.87;5;2.3;20060515;20170919;DF20 +;Sichtweitenmessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;2.3;20170928;20190605;DF20 +;Sichtweitenmessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;2.3;20190611;20190720;DF20 +;Sichtweitenmessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;2.3;20190724;20191217;DF20 +;Sichtweitenmessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;2.5;20200127;20230426;Sichtweitenmessgerät FS11 (DWDSYN);Sichtweitenmessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

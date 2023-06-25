@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  7298;Hattstedt;20041110;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  7298;DWD;20041110;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

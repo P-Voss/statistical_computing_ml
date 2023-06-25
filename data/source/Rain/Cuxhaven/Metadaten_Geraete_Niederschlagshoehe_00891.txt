@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+891;Cuxhaven;;;;;19460101;19510503;Gerätetyp unbekannt;Niederschlagsmenge, konv.;eor;
+891;Cuxhaven;8.71;53.87;4;1;19510504;19720406;Hellmann;Niederschlagsmenge, konv.;eor;
+891;Cuxhaven;8.71;53.87;5;1;19720407;20000508;Hellmann;Niederschlagsmenge, konv.;eor;
+891;Cuxhaven;8.71;53.87;5;1;19990429;20170919;PLUVIO;Niederschlagsmenge, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;1;20170928;20200617;PLUVIO;Niederschlagsmenge, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;1;20200127;20230309;rain[e]H3, Wägetechnologie;Niederschlagsmenge, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;1;20230312;20230426;rain[e]H3, Wägetechnologie;Niederschlagsmenge, elektr.;eor;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

@@ -1,0 +1,17 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+596;Boltenhagen;TT_TER;31.12.1966-22:00;30.06.1967-23:00;542;;eor;                                                                                                                                      
+596;Boltenhagen;TT_TER;18.11.2016-19:00;21.11.2016-11:00;7;;eor;                                                                                                                                        
+596;Boltenhagen;TT_TER;21.11.2016-19:00;23.11.2016-11:00;4;;eor;                                                                                                                                        
+596;Boltenhagen;TT_TER;31.12.2020-19:00;04.01.2021-11:00;10;;eor;                                                                                                                                       
+596;Boltenhagen;TT_TER;30.12.2021-13:00;03.01.2022-11:00;12;;eor;                                                                                                                                       
+596;Boltenhagen;TT_TER;24.06.2022-13:00;27.06.2022-05:00;8;;eor;                                                                                                                                        
+596;Boltenhagen;TT_TER;20.12.2022-13:00;21.12.2022-11:00;3;;eor;                                                                                                                                        
+596;Boltenhagen;RF_TER;03.06.1950-15:00;04.06.1950-06:00;1;;eor;                                                                                                                                        
+596;Boltenhagen;RF_TER;31.12.1966-22:00;30.06.1967-23:00;542;;eor;                                                                                                                                      
+596;Boltenhagen;RF_TER;18.11.2016-19:00;21.11.2016-11:00;7;;eor;                                                                                                                                        
+596;Boltenhagen;RF_TER;21.11.2016-19:00;23.11.2016-11:00;4;;eor;                                                                                                                                        
+596;Boltenhagen;RF_TER;31.12.2020-19:00;04.01.2021-11:00;10;;eor;                                                                                                                                       
+596;Boltenhagen;RF_TER;30.12.2021-13:00;03.01.2022-11:00;12;;eor;                                                                                                                                       
+596;Boltenhagen;RF_TER;24.06.2022-13:00;27.06.2022-11:00;9;;eor;                                                                                                                                        
+596;Boltenhagen;RF_TER;20.12.2022-13:00;21.12.2022-11:00;3;;eor;                                                                                                                                        
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

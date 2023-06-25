@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5142;Ueckermünde;14.07;53.74;1;1.5;19920727;20051109;Videograph;Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;1.5;20051110;20060425;Videograph;Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2.3;20060426;20130814;DF20 +;Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2.3;20130816;20190629;DF20 +;Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2.3;20190711;20200420;DF20 +;Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2.5;20200421;20211119;Sichtweitenmessgerät FS11 (DWDSYN);Sichtweitenmessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2.5;20211123;20230426;Sichtweitenmessgerät FS11 (DWDSYN);Sichtweitenmessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

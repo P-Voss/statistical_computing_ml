@@ -1,0 +1,4 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5839;Emden;7.23;53.39;-.27;1;19970701;20110926;Niederschlags-Detektor;Niederschlagsdauer, elektr.;eor;
+5839;Emden;7.23;53.39;-.27;1;20110927;20230426;Niederschlagswächter;Niederschlagsdauer, elektr.;eor;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

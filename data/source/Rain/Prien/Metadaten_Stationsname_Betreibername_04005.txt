@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  4005;Prien-Stock;19360325;19571231
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  4005;DWD;19360325;19571231
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

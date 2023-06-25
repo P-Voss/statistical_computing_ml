@@ -1,0 +1,11 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+891;Cuxhaven;;;;;19460101;19510503;Gerätetyp unbekannt;Feuchteregistrierung, konv.;eor;
+891;Cuxhaven;8.68;53.88;2.4;2;19460101;19510503;Thermohygrograph, unbekannt;Temperatur- und Feuchtereg., konv.;eor;
+891;Cuxhaven;8.71;53.87;4;2;19510504;19720406;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+891;Cuxhaven;8.71;53.87;5;2;19720407;19740228;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+891;Cuxhaven;8.71;53.87;5;2;19740301;20060517;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+891;Cuxhaven;8.71;53.87;5;2;20000509;20040623;HYGROMER MP100;Feuchtemessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;5;2;20040624;20140918;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;5;2;20140919;20170919;EE33;Feuchtemessung, elektr.;eor;
+891;Cuxhaven;8.71;53.87;4.9;2;20170928;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

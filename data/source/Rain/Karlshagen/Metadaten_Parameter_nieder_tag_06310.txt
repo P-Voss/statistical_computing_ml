@@ -1,0 +1,7 @@
+Stations_ID;Von_Datum;Bis_Datum;Stationsname;Parameter;Parameterbeschreibung;Einheit;Datenquelle (Strukturversion=SV);Zusatz-Info;Besonderheiten;Literaturhinweis;eor;
+6310;20040801;20230430;Karlshagen;NSH_TAG;Neuschneehoehe Tageswert;cm;Niederschlagsdaten aus Niederschlagsroutine nach 01.04.2001 Terminwert und Tagessummen generiert aus SYNOP-Meldung des 06 UTC Termins;05:50 UTC;;;eor;
+6310;20040801;20230507;Karlshagen;RS;tgl. Niederschlagshoehe Messnetz 6;mm;Niederschlagsdaten aus Niederschlagsroutine nach 01.04.2001 Terminwert und Tagessummen generiert aus SYNOP-Meldung des 06 UTC Termins;05:51 - 05:50 FT. UTC;;;eor;
+6310;20040801;20230507;Karlshagen;RSF;Kennung fuer die Art RS (24-stdg.) Messnetz 6;numerischer Code;Niederschlagsdaten aus Niederschlagsroutine nach 01.04.2001 Terminwert und Tagessummen generiert aus SYNOP-Meldung des 06 UTC Termins;05:50 UTC;;;eor;
+6310;20040801;20230430;Karlshagen;SH_TAG;Schneehoehe Tageswert;cm;Niederschlagsdaten aus Niederschlagsroutine nach 01.04.2001 Terminwert und Tagessummen generiert aus SYNOP-Meldung des 06 UTC Termins;05:50 UTC;;;eor;
+Legende: FT  = Folgetag; GZ = Gesetzliche Zeit
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

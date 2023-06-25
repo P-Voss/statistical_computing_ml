@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2306;Hohwacht;19771101;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2306;DWD;19771101;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

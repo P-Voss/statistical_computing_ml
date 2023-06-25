@@ -1,0 +1,7 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+7298;Hattstedt;TT_TER;01.07.2005;08.05.2023;3;Gesamt_Messzeitraum;eor;                                                                                                                                  
+7298;Hattstedt;RF_TER;01.07.2005;08.05.2023;3;Gesamt_Messzeitraum;eor;                                                                                                                                  
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+7298;Hattstedt;TT_TER;20.09.2016-07:00;21.09.2016-11:00;3;;eor;                                                                                                                                         
+7298;Hattstedt;RF_TER;20.09.2016-07:00;21.09.2016-11:00;3;;eor;                                                                                                                                         
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

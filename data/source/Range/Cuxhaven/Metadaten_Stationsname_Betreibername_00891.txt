@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+   891;Cuxhaven;18680401;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+   891;Wetterdienst;18680401;19521110
+   891;DWD;19521111;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

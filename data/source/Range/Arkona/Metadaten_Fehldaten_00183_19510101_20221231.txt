@@ -1,0 +1,21 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+183;Arkona;VK_TER;01.01.1951;08.05.2023;44;Gesamt_Messzeitraum;eor;                                                                                                                                     
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+183;Arkona;VK_TER;05.10.2011-13:00;06.10.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;06.10.2011-13:00;07.10.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;14.11.2011-13:00;15.11.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;28.11.2011-13:00;29.11.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;29.11.2011-13:00;30.11.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;01.12.2011-13:00;02.12.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;03.12.2011-13:00;04.12.2011-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;16.04.2014-13:00;17.04.2014-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;29.04.2016-13:00;30.04.2016-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;13.08.2016-07:00;15.08.2016-05:00;5;;eor;                                                                                                                                             
+183;Arkona;VK_TER;15.08.2016-13:00;16.08.2016-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;16.08.2016-13:00;17.08.2016-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;15.02.2017-13:00;16.02.2017-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;16.02.2017-13:00;17.02.2017-05:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;27.05.2018-19:00;28.05.2018-11:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;05.06.2018-19:00;06.06.2018-11:00;1;;eor;                                                                                                                                             
+183;Arkona;VK_TER;10.10.2022-13:00;18.10.2022-11:00;24;;eor;                                                                                                                                            
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

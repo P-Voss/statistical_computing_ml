@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  6310;    3.00; 54.1151; 13.8315;19100101;20031028;Karlshagen
+  6310;    1.00; 54.1048; 13.8242;20031029;20110903;Karlshagen
+  6310;    1.00; 54.1049; 13.8239;20110904;        ;Karlshagen

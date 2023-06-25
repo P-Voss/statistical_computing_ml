@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+596;Boltenhagen;11.2;54;2;2;19470101;19480616;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+596;Boltenhagen;11.23;53.98;3;2;19480617;19670629;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+596;Boltenhagen;11.19;54;15;2;19670630;19991231;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+596;Boltenhagen;11.19;54;15;2;19770101;19920910;Lithium_Chlorid-Taupunktfühler;Feuchtemessung, elektr.;eor;
+596;Boltenhagen;11.19;54;15;2;19920911;20070813;HYGROMER MP300;Feuchtemessung, elektr.;eor;
+596;Boltenhagen;11.19;54;15;2;20070814;20140730;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+596;Boltenhagen;11.19;54;15;2;20140731;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

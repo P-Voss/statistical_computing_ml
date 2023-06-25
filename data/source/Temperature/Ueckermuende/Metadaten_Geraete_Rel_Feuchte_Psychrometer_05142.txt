@@ -1,0 +1,11 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5142;Ueckermünde;;;;;19360901;19500509;Gerätetyp unbekannt;Feuchteregistrierung, konv.;eor;
+5142;Ueckermünde;14.07;53.74;1;2;19500510;19530930;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+5142;Ueckermünde;14.07;53.75;1;2;19531001;19920726;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+5142;Ueckermünde;14.07;53.75;1;2;19750401;19920726;Lithium_Chlorid-Taupunktfühler;Feuchtemessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1;2;19920727;19920727;Lithium_Chlorid-Taupunktfühler;Feuchtemessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1;2;19920727;20051108;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+5142;Ueckermünde;14.07;53.74;1;2;19920728;20051109;HYGROMER MP300;Feuchtemessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2;20051110;20140916;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+5142;Ueckermünde;14.07;53.74;1.06;2;20140917;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

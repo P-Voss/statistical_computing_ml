@@ -1,0 +1,12 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+183;Arkona;;;;;19470101;19531011;Gerätetyp unbekannt;Feuchteregistrierung, konv.;eor;
+183;Arkona;13.43;54.68;42;2;19480531;19541129;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+183;Arkona;13.43;54.68;42;2;19531012;19990205;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+183;Arkona;13.43;54.68;42;2;19880601;19931221;Lithium_Chlorid-Taupunktfühler;Feuchtemessung, elektr.;eor;
+183;Arkona;13.43;54.68;42;2;19931222;20000908;HYGROMER MP300;Feuchtemessung, elektr.;eor;
+183;Arkona;13.43;54.68;42;2;19990206;20000321;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+183;Arkona;13.43;54.68;42;2;20000914;20041004;HYGROMER MP300;Feuchtemessung, elektr.;eor;
+183;Arkona;13.43;54.68;42;2;20041005;20060810;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+183;Arkona;13.43;54.68;42;2;20060811;20140630;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+183;Arkona;13.43;54.68;42;2;20140701;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

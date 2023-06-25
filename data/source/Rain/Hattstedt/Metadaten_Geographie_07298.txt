@@ -1,0 +1,2 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  7298;    4.00; 54.5268;  9.0425;20041110;        ;Hattstedt

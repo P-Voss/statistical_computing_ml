@@ -1,0 +1,11 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+5839;Emden;FK_TER;01.07.1997;08.05.2023;25;Gesamt_Messzeitraum;eor;                                                                                                                                     
+5839;Emden;DK_TER;01.07.1997;08.05.2023;25;Gesamt_Messzeitraum;eor;                                                                                                                                     
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+5839;Emden;FK_TER;12.04.2013-07:00;15.04.2013-11:00;9;;eor;                                                                                                                                             
+5839;Emden;FK_TER;14.10.2015-13:00;16.10.2015-11:00;5;;eor;                                                                                                                                             
+5839;Emden;FK_TER;01.04.2022-19:00;05.04.2022-11:00;11;;eor;                                                                                                                                            
+5839;Emden;DK_TER;12.04.2013-07:00;15.04.2013-11:00;9;;eor;                                                                                                                                             
+5839;Emden;DK_TER;14.10.2015-13:00;16.10.2015-11:00;5;;eor;                                                                                                                                             
+5839;Emden;DK_TER;01.04.2022-19:00;05.04.2022-11:00;11;;eor;                                                                                                                                            
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

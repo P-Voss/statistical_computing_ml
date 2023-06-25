@@ -1,0 +1,7 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+3955;Plön (See);SH_TAG;01.01.1950;31.01.1997;1;Gesamt_Messzeitraum;eor;                                                                                                                                 
+3955;Plön (See);NSH_TAG;01.01.1950;31.01.1997;1;Gesamt_Messzeitraum;eor;                                                                                                                                
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+3955;Plön (See);SH_TAG;31.12.1970;31.12.1970;1;;eor;                                                                                                                                                    
+3955;Plön (See);NSH_TAG;31.12.1970;31.12.1970;1;;eor;                                                                                                                                                   
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

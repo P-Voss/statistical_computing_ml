@@ -1,0 +1,11 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+5516;Fehmarn;TT_TER;30.09.1987-22:00;01.08.1996-06:00;9681;;eor;                                                                                                                                        
+5516;Fehmarn;TT_TER;02.05.2018-07:00;03.05.2018-11:00;3;;eor;                                                                                                                                           
+5516;Fehmarn;TT_TER;17.07.2020-07:00;19.07.2020-05:00;5;;eor;                                                                                                                                           
+5516;Fehmarn;TT_TER;21.09.2021-07:00;22.09.2021-11:00;4;;eor;                                                                                                                                           
+5516;Fehmarn;RF_TER;30.09.1987-22:00;01.08.1996-06:00;9681;;eor;                                                                                                                                        
+5516;Fehmarn;RF_TER;02.05.2018-07:00;03.05.2018-11:00;3;;eor;                                                                                                                                           
+5516;Fehmarn;RF_TER;17.07.2020-07:00;19.07.2020-05:00;5;;eor;                                                                                                                                           
+5516;Fehmarn;RF_TER;21.09.2021-07:00;22.09.2021-11:00;4;;eor;                                                                                                                                           
+5516;Fehmarn;RF_TER;19.02.2022-07:00;23.02.2022-11:00;13;;eor;                                                                                                                                          
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

@@ -1,0 +1,8 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5142;Ueckermünde;18900601;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5142;Wetterdienst;18900601;19491231
+  5142;Meteorologischer Dienst der DDR;19500101;19901231
+  5142;DWD;19910101;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

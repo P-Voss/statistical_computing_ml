@@ -1,0 +1,4 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+6310;Karlshagen;TT_TER;19.06.2017-07:00;20.06.2017-11:00;3;;eor;                                                                                                                                        
+6310;Karlshagen;RF_TER;19.06.2017-07:00;20.06.2017-11:00;3;;eor;                                                                                                                                        
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

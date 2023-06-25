@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5839;Emden;19900701;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5839;DWD;19900701;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

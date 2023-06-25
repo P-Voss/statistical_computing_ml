@@ -1,0 +1,10 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5516;Westermarkelsdorf;;;;;19410101;19410228;Gerätetyp unbekannt;Niederschlagsmenge, konv.;eor;
+5516;Westermarkelsdorf;11.05;54.52;1;1;19410301;19570723;Hellmann;Niederschlagsmenge, konv.;eor;
+5516;Westermarkelsdorf/Fehmarn;11.06;54.53;1.4;1;19570724;19870930;Hellmann;Niederschlagsmenge, konv.;eor;
+5516;Westermarkelsdorf;11.06;54.53;3;1;19960605;20020724;Niederschlagssensor nach Joss-Tognini;Niederschlagsmenge, elektr.;eor;
+5516;Westermarkelsdorf;11.06;54.53;3;1;20020725;20060622;PLUVIO;Niederschlagsmenge, elektr.;eor;
+5516;Westermarkelsdorf;11.06;54.53;3.21;1;20060623;20070630;PLUVIO;Niederschlagsmenge, elektr.;eor;
+5516;Fehmarn;11.06;54.53;3.21;1;20070701;20190227;PLUVIO;Niederschlagsmenge, elektr.;eor;
+5516;Fehmarn;11.06;54.53;3.21;1;20190228;20230426;rain[e]H3, Wägetechnologie;Niederschlagsmenge, elektr.;eor;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

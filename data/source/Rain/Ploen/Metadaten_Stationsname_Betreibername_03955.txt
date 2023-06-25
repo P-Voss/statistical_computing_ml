@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  3955;Plön;19500101;19520630
+  3955;Plön (See);19520701;19970131
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  3955;DWD;19500101;19970131
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

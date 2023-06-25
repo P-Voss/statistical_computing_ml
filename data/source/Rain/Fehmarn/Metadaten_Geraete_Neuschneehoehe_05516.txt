@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5516;Westermarkelsdorf/Fehmarn;11.06;54.53;1.4;;19600101;19870930;Schneepegel;Schneehöhenmessung, manuell;eor;
+5516;Westermarkelsdorf;11.06;54.53;3;;19960605;20060622;Schneepegel;Schneehöhenmessung, manuell;eor;
+5516;Westermarkelsdorf;11.06;54.53;3.21;;20060623;20070630;Schneepegel;Schneehöhenmessung, manuell;eor;
+5516;Fehmarn;11.06;54.53;3.21;;20070701;20150228;Schneepegel;Schneehöhenmessung, manuell;eor;
+5516;Fehmarn;11.06;54.53;3.21;2;20131219;20230426;Schneehöhensensor SHM 30;Schneehöhenmessung, elektr.;eor;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --

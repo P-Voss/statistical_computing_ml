@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  6310;Nossen;18910101;19831231
+  6310;Karlshagen;20030520;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  6310;Wetterdienst;19100101;19491231
+  6310;Meteorologischer Dienst der DDR;19500101;19901231
+  6310;DWD;19910101;
+generiert: 09.05.2023 --  Deutscher Wetterdienst  --

@@ -1,0 +1,13 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+596;Boltenhagen;11.23;53.97;5;1;18880101;19220831;Hellmann;Niederschlagsmenge, konv.;eor;
+596;Boltenhagen;11.2;53.99;5;1;19240201;19460207;Hellmann;Niederschlagsmenge, konv.;eor;
+596;Boltenhagen;11.2;54;2;1;19460228;19480616;Hellmann;Niederschlagsmenge, konv.;eor;
+596;Boltenhagen;11.23;53.98;3;1;19480617;19670629;Hellmann;Niederschlagsmenge, konv.;eor;
+596;Boltenhagen;11.19;54;15;1;19670630;19770331;Hellmann;Niederschlagsmenge, konv.;eor;
+596;Boltenhagen;11.19;54;15;1;19770401;19910415;Niederschlagsgeber / Ombrometer, Wippfunktion;Niederschlagsmenge, elektr.;eor;
+596;Boltenhagen;11.19;54;15;1;19910416;19981205;NG 200, Tröpfchenzähler;Niederschlagsdauer, -menge, elektr.;eor;
+596;Boltenhagen;11.19;54;15;1;19981209;20070813;NG 200, Tröpfchenzähler;Niederschlagsdauer, -menge, elektr.;eor;
+596;Boltenhagen;11.19;54;15;1;20070814;20180626;PLUVIO;Niederschlagsmenge, elektr.;eor;
+596;Boltenhagen;11.19;54;15;1;20180627;20190523;rain[e]H3, Wägetechnologie;Niederschlagsmenge, elektr.;eor;
+596;Boltenhagen;11.19;54;15;1;20190603;20230426;rain[e]H3, Wägetechnologie;Niederschlagsmenge, elektr.;eor;
+generiert: 08.05.2023 --  Deutscher Wetterdienst  --
