@@ -52,8 +52,8 @@ stations = [
     {'name': 'Ueckermuende'},
 ]
 
-filteredFileFormat = '../training/{}_filtered.csv'
-trainingFileFormat = '../training/{}_training.csv'
+filteredFileFormat = '../data/training/{}_filtered.csv'
+trainingFileFormat = '../data/training/{}_training.csv'
 rainFileFormat = '../data/source/Rain/{}/product.txt'
 
 for station in stations:
@@ -83,7 +83,7 @@ for station in stations:
 
             formatted_row = (
                 row["MESS_DATUM"],
-                getSeason(int(row["MESS_DATUM"][4:6])),
+                int(getSeason(int(row["MESS_DATUM"][4:6]))),
                 int(row["MESS_DATUM"][0:4]),
                 int(row["MESS_DATUM"][4:6]),
                 int(row["MESS_DATUM"][6:8]),

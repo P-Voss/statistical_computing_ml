@@ -21,7 +21,7 @@ rangeFileFormat = '../data/source/Range/{}/product.txt'
 temperatureFileFormat = '../data/source/Temperature/{}/product.txt'
 windFileFormat = '../data/source/Wind/{}/product.txt'
 
-trainingFileFormat = '../training/{}_filtered.csv'
+trainingFileFormat = '../data/training/{}_filtered.csv'
 mergedFileFormat = '../data/history/{}.csv'
 
 for station in stations:

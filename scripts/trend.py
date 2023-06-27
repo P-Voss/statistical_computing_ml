@@ -4,7 +4,7 @@ import calendar
 import pandas as pd
 import numpy as np
 
-importFileFormat = '../training/{}_training.csv'
+importFileFormat = '../data/training/{}_training.csv'
 trendFileFormat = '../data/trend/{}.csv'
 
 stations = [
@@ -32,7 +32,7 @@ for station in stations:
     # Durchschnitt pro Tag und Stunde berechnen
     data = df.groupby('date').mean()
     # Entferne Daten die später abgeleitet werden können
-    data = data.drop(columns=['hour_sin', 'hour_cos', 'year', 'month', 'day', 'hour', 'coverage_class', 'MESS_DATUM'])
+    data = data.drop(columns=['hour_sin', 'hour_cos', 'season', 'year', 'month', 'day', 'hour', 'coverage_class', 'MESS_DATUM'])
 
     # Werte runden
     data[['coverage', 'wind_dir', 'wind_str']] = data[['coverage', 'wind_dir', 'wind_str']].round().astype(int)
