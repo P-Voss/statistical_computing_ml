@@ -20,6 +20,7 @@ stations = [
 trainingFileFormat = "../../training/{}_training.csv"
 modelFileFormat = "training/{}/model.h5"
 checkpointFileFormat = "training/{}/checkpoint.h5"
+scalerFileFormat = "training/{}/scaler.pkl"
 reportFile = "training/temperature_report.json"
 reports = {}
 
@@ -40,7 +41,8 @@ for station in stations:
 
     result = Rnn.executeTraining(
         trainingFileFormat.format(station["file"]),
-        checkpointFileFormat.format(station["file"])
+        checkpointFileFormat.format(station["file"]),
+        scalerFileFormat.format(station["file"])
     )
 
     print("--- Result " + station['name'] + " ---")

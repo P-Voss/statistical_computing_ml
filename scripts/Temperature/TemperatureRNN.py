@@ -8,6 +8,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.callbacks import ModelCheckpoint
+import joblib
 
 class TemperatureRNN:
 
@@ -19,7 +20,7 @@ class TemperatureRNN:
         self.model.compile(loss='mean_squared_error', optimizer='adam', metrics=['mean_absolute_error'])
 
 
-    def executeTraining(self, trainingfile, checkpointfile):
+    def executeTraining(self, trainingfile, checkpointfile, scalerfile):
         data = pandas.read_csv(trainingfile, delimiter=';')
         data = pandas.get_dummies(data, columns=['season'])
 
@@ -32,6 +33,8 @@ class TemperatureRNN:
 
         scaler = StandardScaler()
         features = scaler.fit_transform(features)
+
+        joblib.dump(scaler, scalerfile)
 
         # Umwandlung der Daten in 3D-Format für LSTMs
         features = np.reshape(features, (features.shape[0], 1, features.shape[1]))
