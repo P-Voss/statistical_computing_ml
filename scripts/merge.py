@@ -1,5 +1,6 @@
 
 import pandas
+import numpy
 
 stations = [
     {'name': 'Arkona'},
@@ -12,7 +13,6 @@ stations = [
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
     {'name': 'Ploen'},
-    {'name': 'Prien'},
     {'name': 'Ueckermuende'},
 ]
 
@@ -43,6 +43,8 @@ for station in stations:
     mergedData = pandas.merge(cloudinessDf, rangeDf, on='MESS_DATUM', how='outer')
     mergedData = pandas.merge(mergedData, temperatureDf, on='MESS_DATUM', how='outer')
     mergedData = pandas.merge(mergedData, windDf, on='MESS_DATUM', how='outer')
+
+    mergedData.replace(-999, numpy.nan, inplace=True)
 
     mergedData.to_csv(mergedFileFormat.format(station['name']), sep=';', index=False)
 
