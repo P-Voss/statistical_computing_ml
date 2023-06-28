@@ -48,7 +48,6 @@ stations = [
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
     {'name': 'Ploen'},
-    {'name': 'Prien'},
     {'name': 'Ueckermuende'},
 ]
 

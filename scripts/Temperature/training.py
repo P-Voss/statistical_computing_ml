@@ -13,11 +13,10 @@ stations = [
     {"name": "Karlshagen", "file": "Karlshagen"},
     {"name": "Konstanz", "file": "Konstanz"},
     {"name": "Plön", "file": "Ploen"},
-    {"name": "Prien", "file": "Prien"},
     {"name": "Ueckermünde", "file": "Ueckermuende"},
 ]
 
-trainingFileFormat = "../../training/{}_training.csv"
+trainingFileFormat = "../../data/training/{}_training.csv"
 modelFileFormat = "training/{}/model.h5"
 checkpointFileFormat = "training/{}/checkpoint.h5"
 scalerFileFormat = "training/{}/scaler.pkl"
