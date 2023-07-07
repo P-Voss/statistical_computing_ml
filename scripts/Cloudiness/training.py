@@ -1,88 +1,58 @@
-
-import tensorflow as tf
-import pandas
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import KFold
-from tensorflow.keras.utils import to_categorical
+import json
+import numpy
+from pathlib import Path
+from CloudinessRNN import CloudinessRNN
 
 stations = [
-    {"name": "Arkona", "data": {}},
-    {"name": "Boltenhagen", "data": {}},
-    {"name": "Cuxhaven", "data": {}},
-    {"name": "Emden", "data": {}},
-    {"name": "Fehmarn", "data": {}},
-    {"name": "Hattstedt", "data": {}},
-    {"name": "Hohwacht", "data": {}},
-    {"name": "Karlshagen", "data": {}},
-    {"name": "Konstanz", "data": {}},
-    {"name": "Plön", "data": {}},
-    {"name": "Prien", "data": {}},
-    {"name": "Ueckermuende", "data": {}},
+    {"name": "Arkona", "file": "Arkona"},
+    {"name": "Boltenhagen", "file": "Boltenhagen"},
+    {"name": "Cuxhaven", "file": "Cuxhaven"},
+    {"name": "Emden", "file": "Emden"},
+    {"name": "Fehmarn", "file": "Fehmarn"},
+    {"name": "Hattstedt", "file": "Hattstedt"},
+    {"name": "Hohwacht", "file": "Hohwacht"},
+    {"name": "Karlshagen", "file": "Karlshagen"},
+    {"name": "Konstanz", "file": "Konstanz"},
+    {"name": "Ueckermünde", "file": "Ueckermuende"},
 ]
 
-trainingFileFormat = "training/{}/training.csv"
+trainingFileFormat = "../../data/training/{}_training.csv"
+errorsFileFormat = "training/{}/errors.npy"
 modelFileFormat = "training/{}/model.h5"
-
-
-def create_model():
-    model = tf.keras.models.Sequential([
-        tf.keras.layers.Dense(16, activation='relu', input_shape=(3,)),
-        tf.keras.layers.Dense(8, activation='relu'),
-        tf.keras.layers.Dense(9, activation='softmax')
-    ])
-
-    model.compile(loss='categorical_crossentropy',
-                  optimizer='adam',
-                  metrics=['accuracy'])
-    return model
-
-n_folds = 5
-kfold = KFold(n_folds, shuffle=True, random_state=42)
+checkpointFileFormat = "training/{}/checkpoint.h5"
+scalerFileFormat = "training/{}/scaler.pkl"
+reportFile = "training/cloudiness_report.json"
+reports = {}
 
 for station in stations:
 
-    histories = []
+    modelFilePath = Path(modelFileFormat.format(station['file']))
+    # if modelFilePath.is_file():
+    #     print("Model for " + station["name"] + " already exists. Skipping to the next station.")
+    #     continue
 
-    fold_number = 1
+    trainingFilePath = Path(trainingFileFormat.format(station["file"]))
+    if not trainingFilePath.is_file():
+        print("No training data found for " + station["name"] + ". Skipping to the next station.")
+        continue
 
-    data = pandas.read_csv(trainingFileFormat.format(station['name']), delimiter=';')
-    features = data[['month', 'day', 'hour']]
-    # features = data[['year', 'month', 'day', 'hour']]
-    # Zieldaten
-    target = data['value']
+    Rnn = CloudinessRNN()
+    print("--- Running Training for " + station['name'] + " ---")
 
-    # one-hot kodierte Zieldaten
-    # target = pandas.get_dummies(data['value'])
+    result = Rnn.executeTraining(
+        trainingFileFormat.format(station["file"]),
+        checkpointFileFormat.format(station["file"]),
+        scalerFileFormat.format(station["file"])
+    )
 
-    # Skalierung der Feature-Daten
-    scaler = StandardScaler()
-    features = scaler.fit_transform(features)
+    print("--- Result " + station['name'] + " ---")
+    print("MAE: " + str(result['mae']))
+    print("Standardabweichung der Fehler: " + str(result['stdDev']))
+    reports[station['file']] = {'mae': result['mae'], 'stdDev': result['stdDev']}
+    numpy.save(errorsFileFormat.format(station['file']), result['errors'])
 
-    # Stellen Sie sicher, dass die Ziele auf einer Skala von 0 bis 8 liegen und dass sie kategorial kodiert sind
-    target = to_categorical(target)
+    print("Saving Model for station " + station["name"])
+    Rnn.saveModel(modelFileFormat.format(station['file']))
 
-    model = create_model()
-
-    for train_index, val_index in kfold.split(features, target):
-        features_train, features_val = features[train_index], features[val_index]
-        target_train, target_val = target[train_index], target[val_index]
-
-        print(f'---- Starting training for Fold {fold_number} ----')
-
-        history = model.fit(
-            features_train,
-            target_train,
-            epochs=20,  # Run one epoch at a time
-            batch_size=64,
-            validation_data=(features_val, target_val),
-            verbose=1)
-
-        fold_number += 1
-
-    exit("done")
-
+with open(reportFile, 'w') as file:
+    json.dump(reports, file)

@@ -1,4 +1,12 @@
 
+# 1) Skript führt den vorhandenen Daten die Messpunkte zum Niederschlag zu
+# Niederschlag u.A. wird stündlich erfasst, hier können daraus verschiedene Faktoren erstellt werden, z.B.
+# - Tageswert
+# - Wert zum Messzeitpunkt (der anderen Faktoren)
+# - Niederschlag der letzten X Stunden
+# 2) Ergänzt die Daten außerdem um die Jahreszeit und Temperaturdaten des Vortags, codiert die Uhrzeit des Messdatums
+# 3) Wandelt Kürzel des DWD zu sprechenden Bezeichnungen um, z.B. RF_TER => humidity
+
 import csv
 import numpy
 import pandas
@@ -47,7 +55,6 @@ stations = [
     {'name': 'Hohwacht'},
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
-    {'name': 'Ploen'},
     {'name': 'Ueckermuende'},
 ]
 
@@ -78,7 +85,6 @@ for station in stations:
                 rain = rainDf.at[row["MESS_DATUM"][0:8], 'RS']
             else:
                 continue
-                # rain = 0
 
             formatted_row = (
                 row["MESS_DATUM"],

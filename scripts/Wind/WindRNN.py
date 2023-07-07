@@ -6,11 +6,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from tensorflow.keras.callbacks import ModelCheckpoint
 import joblib
 
-class TemperatureRNN:
+class WindRNN:
 
     def __init__(self):
         self.model = None
@@ -24,18 +24,15 @@ class TemperatureRNN:
         data = pandas.read_csv(trainingfile, delimiter=';')
         data = pandas.get_dummies(data, columns=['season'])
 
-        # Temperaturen in Kelvin umwandeln - keine Verbesserung
-        # data['prev_temp'] = data['prev_temp'] + 273.15
-        # data['temp'] = data['temp'] + 273.15
-
         # Zieldaten
-        target = data['temp']
+        target = data['wind_str']
 
         # Feature Daten
         features = data[['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                         'prev_temp', 'prev_hum', 'humidity', 'coverage', 'wind_dir', 'wind_str', 'prec']]
+                         'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'coverage', 'range', 'prec']]
 
-        scaler = StandardScaler()
+        # scaler = StandardScaler()
+        scaler = MinMaxScaler()
         features = scaler.fit_transform(features)
 
         joblib.dump(scaler, scalerfile)
@@ -44,15 +41,15 @@ class TemperatureRNN:
         features = np.reshape(features, (features.shape[0], 1, features.shape[1]))
 
         features_train, features_test, target_train, target_test = train_test_split(
-            features, target, test_size=0.2, random_state=1337
+            features, target, test_size=0.2, random_state=42
         )
 
         if self.model is None:
             self.initiateModel()
 
-        self.model.add(LSTM(128, activation='tanh', input_shape=(features_train.shape[1], features_train.shape[2])))
-        self.model.add(Dense(64, activation='tanh'))
-        # self.model.add(LSTM(128, activation='tanh', input_shape=(features_train.shape[1], features_train.shape[2])))
+        self.model.add(LSTM(128, activation='relu', input_shape=(features_train.shape[1], features_train.shape[2])))
+
+        self.model.add(Dense(128, activation='relu'))
         self.model.add(Dense(1))
 
         checkpoint = ModelCheckpoint(
@@ -71,7 +68,7 @@ class TemperatureRNN:
             target_train,
             validation_data=(features_test, target_test),
             epochs=500,
-            batch_size=256,
+            batch_size=128,
             callbacks=[early_stop, checkpoint]
         )
 

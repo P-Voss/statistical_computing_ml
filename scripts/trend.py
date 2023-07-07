@@ -1,8 +1,8 @@
-from sklearn.linear_model import LinearRegression
-from datetime import datetime, timedelta
-import calendar
+
+# Skript bildet pro Wetterstation Durchschnittswerte für jeden Tag des Jahres anhand der historischen Daten
+# Trend, bzw. typischer Wert, dient der Vorhersage per AI-Modell und als Vergleichswert in Visualisierung
+
 import pandas as pd
-import numpy as np
 
 importFileFormat = '../data/training/{}_training.csv'
 trendFileFormat = '../data/trend/{}.csv'
@@ -17,8 +17,6 @@ stations = [
     {'name': 'Hohwacht'},
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
-    {'name': 'Ploen'},
-    {'name': 'Prien'},
     {'name': 'Ueckermuende'},
 ]
 
@@ -29,10 +27,10 @@ for station in stations:
     date = pd.to_datetime(df['MESS_DATUM'], format='%Y%m%d%H')
     df['date'] = date.dt.strftime('%m%d%H')
 
-    # Durchschnitt pro Tag und Stunde berechnen
-    data = df.groupby('date').mean()
     # Entferne Daten die später abgeleitet werden können
-    data = data.drop(columns=['hour_sin', 'hour_cos', 'season', 'year', 'month', 'day', 'hour', 'coverage_class', 'MESS_DATUM'])
+    data = df.drop(columns=['hour_sin', 'hour_cos', 'season', 'year', 'month', 'day', 'hour', 'coverage_class', 'MESS_DATUM'])
+    # Durchschnitt pro Tag und Stunde berechnen
+    data = data.groupby('date').mean()
 
     # Werte runden
     data[['coverage', 'wind_dir', 'wind_str']] = data[['coverage', 'wind_dir', 'wind_str']].round().astype(int)

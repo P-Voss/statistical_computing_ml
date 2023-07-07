@@ -1,5 +1,6 @@
 import pandas
 import numpy
+import json
 from datetime import date, timedelta
 import tensorflow.python.keras.models
 import joblib
@@ -18,12 +19,23 @@ def getSeason(month):
         return 2
     return 3
 
+# Windgeschwindigkeit liegt zwischen 0 und 12
+# https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=100390&lv2=100310
+def normalizeValue(value):
+    return min(
+        12,
+        max(
+            0,
+            value
+        )
+    )
 
 
 trendFileFormat = '../data/trend/{}.csv'
-modelFileFormat = 'Temperature/training/{}/model.h5'
-scalerFileFormat = 'Temperature/training/{}/scaler.pkl'
-predictionFileFormat = '../data/trend/{}_prediction.csv'
+modelFileFormat = 'Wind/training/{}/model.h5'
+scalerFileFormat = 'Wind/training/{}/scaler.pkl'
+predictionFileFormat = '../data/trend/wind/{}_prediction.csv'
+reportFilePath = 'Wind/training/wind_report.json'
 
 stations = [
     {'name': 'Arkona'},
@@ -35,16 +47,18 @@ stations = [
     {'name': 'Hohwacht'},
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
-    {'name': 'Ploen'},
     {'name': 'Ueckermuende'},
 ]
 
 startDate = date(2023, 1, 1)
 endDate = date(2023, 12, 31)
-
+with open(reportFilePath) as file:
+    report = json.load(file)
 
 for station in stations:
 
+    mae = report[station['name']]['mae']
+    stdDev = report[station['name']]['stdDev']
     model = tensorflow.keras.models.load_model(modelFileFormat.format(station['name']))
     scaler = joblib.load(scalerFileFormat.format(station['name']))
 
@@ -74,15 +88,33 @@ for station in stations:
 
                 features = row[
                     ['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                     'prev_temp', 'prev_hum', 'humidity', 'coverage', 'wind_dir', 'wind_str', 'prec']]
-
+                     'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'coverage', 'range', 'prec']]
+                features = pandas.DataFrame([features], columns=[
+                    'season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
+                    'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'coverage', 'range', 'prec'
+                ])
                 # Skalieren Sie Ihre Vorhersagedaten
-                features = scaler.transform([features])
+                features = scaler.transform(features)
 
                 features_reshaped = numpy.expand_dims(features, axis=0)
 
                 prediction = model.predict(features_reshaped)
-                data.append({'date': single_date.strftime('%Y-%m-%d'), 'hour': single_hour, 'prediction': prediction[0][0]})
+                upperConfidence = prediction[0][0] + 1.645 * stdDev
+                lowerConfidence = prediction[0][0] - 1.645 * stdDev
+
+                data.append(
+                    {
+                        'datehour': single_date.strftime('%Y%m%d') + str(single_hour).rjust(2, '0'),
+                        'date': single_date.strftime('%Y-%m-%d'),
+                        'hour': single_hour,
+                        'prediction': normalizeValue(prediction[0][0]),
+                        'upper_bound_mae': normalizeValue(prediction[0][0] + mae),
+                        'lower_bound_mae': normalizeValue(prediction[0][0] - mae),
+                        'upper_bound_confidence_90': normalizeValue(upperConfidence),
+                        'lower_bound_confidence_90': normalizeValue(lowerConfidence),
+                        'trend': normalizeValue(row['wind_str'])
+                    }
+                )
     df_predictions = pandas.DataFrame(data)
     df_predictions.to_csv(predictionFileFormat.format(station['name']), index=False, sep=';')
 

@@ -1,4 +1,7 @@
 
+# Skript führt die verschiedenen Messwerte der unterschiedlichen Wetterfaktoren pro Wetterstation in einer
+# einzelnen Datei zusammen
+
 import pandas
 import numpy
 
@@ -12,7 +15,6 @@ stations = [
     {'name': 'Hohwacht'},
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
-    {'name': 'Ploen'},
     {'name': 'Ueckermuende'},
 ]
 
@@ -44,6 +46,7 @@ for station in stations:
     mergedData = pandas.merge(mergedData, temperatureDf, on='MESS_DATUM', how='outer')
     mergedData = pandas.merge(mergedData, windDf, on='MESS_DATUM', how='outer')
 
+    mergedData.replace('', numpy.nan, inplace=True)
     mergedData.replace(-999, numpy.nan, inplace=True)
 
     mergedData.to_csv(mergedFileFormat.format(station['name']), sep=';', index=False)

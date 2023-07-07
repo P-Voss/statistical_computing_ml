@@ -1,7 +1,7 @@
 import json
 import numpy
 from pathlib import Path
-from TemperatureRNN import TemperatureRNN
+from WindRNN import WindRNN
 
 stations = [
     {"name": "Arkona", "file": "Arkona"},
@@ -21,7 +21,7 @@ errorsFileFormat = "training/{}/errors.npy"
 modelFileFormat = "training/{}/model.h5"
 checkpointFileFormat = "training/{}/checkpoint.h5"
 scalerFileFormat = "training/{}/scaler.pkl"
-reportFile = "training/temperature_report.json"
+reportFile = "training/wind_report.json"
 reports = {}
 
 for station in stations:
@@ -36,7 +36,7 @@ for station in stations:
         print("No training data found for " + station["name"] + ". Skipping to the next station.")
         continue
 
-    Rnn = TemperatureRNN()
+    Rnn = WindRNN()
     print("--- Running Training for " + station['name'] + " ---")
 
     result = Rnn.executeTraining(
@@ -48,9 +48,11 @@ for station in stations:
     print("--- Result " + station['name'] + " ---")
     print("MAE: " + str(result['mae']))
     print("Standardabweichung der Fehler: " + str(result['stdDev']))
-
     reports[station['file']] = {'mae': result['mae'], 'stdDev': result['stdDev']}
     numpy.save(errorsFileFormat.format(station['file']), result['errors'])
+
+    print("Saving Model for station " + station["name"])
+    Rnn.saveModel(modelFileFormat.format(station['file']))
 
 with open(reportFile, 'w') as file:
     json.dump(reports, file)

@@ -1,10 +1,15 @@
+
+# Alternative zur Trendbildung per arithm. Mittel
+# Nutzt lineare Regression zur Generierung der Wetterdaten anhand historischer Daten
+# (Wird für die Fallstudie nicht genutzt)
+
 from sklearn.linear_model import LinearRegression
 from datetime import datetime, timedelta
 import calendar
 import pandas as pd
 import numpy as np
 
-importFileFormat = '../training/{}_training.csv'
+importFileFormat = '../data/training/{}_training.csv'
 trendFileFormat = '../data/trend/{}.csv'
 
 stations = [
@@ -17,8 +22,6 @@ stations = [
     {'name': 'Hohwacht'},
     {'name': 'Karlshagen'},
     {'name': 'Konstanz'},
-    {'name': 'Ploen'},
-    {'name': 'Prien'},
     {'name': 'Ueckermuende'},
 ]
 
@@ -42,7 +45,6 @@ for station in stations:
                 if len(subset) < 2:
                     continue
                 for year in range(2023, 2026):
-                    # Hier erstellen Sie die "row"-Liste außerhalb der 'feature'-Schleife
                     row = [datetime(year, month, day, hour)]
                     for feature in features:
                         model = LinearRegression()
@@ -52,7 +54,6 @@ for station in stations:
                     # Fügen Sie die "row"-Liste zur "results"-Liste hinzu
                     results.append(row)
 
-    # Vorhersagen in einen DataFrame umwandeln und als CSV speichern
     columns = ['MESS_DATUM'] + features
     df_pred = pd.DataFrame(results, columns=columns)
     df_pred.to_csv(trendFileFormat.format(station['name']), index=False, sep=';')
