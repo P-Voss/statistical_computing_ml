@@ -1,2 +1,0 @@
-Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
-  4005;  530.00; 47.8588; 12.3624;19360325;19571231;Prien-Stock

@@ -1,6 +1,0 @@
-Stations_ID;Von_Datum;Bis_Datum;Stationsname;Parameter;Parameterbeschreibung;Einheit;Datenquelle (Strukturversion=SV);Zusatz-Info;Besonderheiten;Literaturhinweis;eor;
-4005;19460101;19571230;Prien-Stock;RS;tgl. Niederschlagshoehe Messnetz 6;mm;Niederschlagsdaten aus Niederschlagsroutine des DWD oder Vorgängerdienste bis Einrichtung Nst(A) oder Nst(k) (1 Termin ca 7 MOZ und Tagessummen);NBL:07:00-07:00 FT. GZ (bis 1990)  sonst 07:30 - 07:30 FT. GZ;;;eor;
-4005;19460101;19571230;Prien-Stock;RSF;Kennung fuer die Art RS (24-stdg.) Messnetz 6;numerischer Code;Niederschlagsdaten aus Niederschlagsroutine des DWD oder Vorgängerdienste bis Einrichtung Nst(A) oder Nst(k) (1 Termin ca 7 MOZ und Tagessummen);NBL:07:00 GZ (bis 1990)  sonst 07:30 GZ;;;eor;
-4005;19460101;19571230;Prien-Stock;SH_TAG;Schneehoehe Tageswert;cm;Niederschlagsdaten aus Niederschlagsroutine des DWD oder Vorgängerdienste bis Einrichtung Nst(A) oder Nst(k) (1 Termin ca 7 MOZ und Tagessummen);NBL:07:00 GZ (bis 1990)  sonst 07:30 GZ;;;eor;
-Legende: FT  = Folgetag; GZ = Gesetzliche Zeit
-generiert: 08.05.2023 --  Deutscher Wetterdienst  --
