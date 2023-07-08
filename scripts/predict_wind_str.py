@@ -112,7 +112,7 @@ for station in stations:
                         'lower_bound_mae': normalizeValue(prediction[0][0] - mae),
                         'upper_bound_confidence_90': normalizeValue(upperConfidence),
                         'lower_bound_confidence_90': normalizeValue(lowerConfidence),
-                        'trend': normalizeValue(row['wind_str'])
+                        'trend': row['wind_str']
                     }
                 )
     df_predictions = pandas.DataFrame(data)
