@@ -1,4 +1,0 @@
-Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
-3955;Plön;10.41;54.16;26;1;19500101;19520630;Hellmann;Niederschlagsmenge, konv.;eor;
-3955;Plön (See);10.4;54.16;24;1;19520701;19910131;Hellmann;Niederschlagsmenge, konv.;eor;
-generiert: 08.05.2023 --  Deutscher Wetterdienst  --

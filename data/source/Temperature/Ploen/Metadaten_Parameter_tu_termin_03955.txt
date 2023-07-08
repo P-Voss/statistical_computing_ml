@@ -1,5 +1,0 @@
-Stations_ID;Von_Datum;Bis_Datum;Stationsname;Parameter;Parameterbeschreibung;Einheit;Datenquelle (Strukturversion=SV);Zusatz-Info;Besonderheiten;Literaturhinweis;eor;
-3955;19500101;19970131;Plön (See);RF_TER;Terminwerte der relativen Feuchte;%;Klimadaten aus Klimaroutine des DWD (3 Termine: um  07, 14, 21 MOZ, ab 01.01.1987 07:30,14:30,21:30 MEZ) und Tageswerte jeweils nach Beobachteranleitung für Klimastationen (BAK);Terminwerte in MEZ;;;eor;
-3955;19500101;19970131;Plön (See);TT_TER;Terminwerte der Lufttemperatur;°C;Klimadaten aus Klimaroutine des DWD (3 Termine: um  07, 14, 21 MOZ, ab 01.01.1987 07:30,14:30,21:30 MEZ) und Tageswerte jeweils nach Beobachteranleitung für Klimastationen (BAK);Terminwerte in MEZ;;;eor;
-Legende: FT  = Folgetag; GZ = Gesetzliche Zeit
-generiert: 09.05.2023 --  Deutscher Wetterdienst  --

@@ -1,5 +1,0 @@
-Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
-3955;Plön (See);VK_TER;01.01.1950;31.01.1997;93;Gesamt_Messzeitraum;eor;                                                                                                                                
-Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
-3955;Plön (See);VK_TER;28.02.1995-22:00;01.04.1995-06:00;93;;eor;                                                                                                                                       
-generiert: 09.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    
