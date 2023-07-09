@@ -74,7 +74,7 @@ ggplot(gatheredData, aes(x = datehour, y = FK_TER, color = station)) +
 ggplot(gatheredData, aes(x = datehour, y = TT_TER, color = station)) +
     ggtitle("Temperaturen aller Stationen") +
     # geom_line(alpha = 0.6) +
-    geom_smooth(se = FALSE) +
+    geom_smooth(se = FALSE, span=0.8) +
     # geom_point() +
     coord_cartesian(ylim = c(-10, 35)) +
     scale_y_continuous(breaks = seq(-10, 35, 1)) +
@@ -84,7 +84,7 @@ ggplot(gatheredData, aes(x = datehour, y = TT_TER, color = station)) +
 ggplot(gatheredData, aes(x = datehour, y = N_TER, color = station)) +
     ggtitle("Bedeckungsgrade aller Stationen") +
     # geom_line(alpha = 0.6) +
-    geom_smooth(se = FALSE) +
+    geom_smooth(se = FALSE, span=0.8) +
     # geom_point() +
     coord_cartesian(ylim = c(0, 8)) +
     scale_y_continuous(breaks = seq(0, 8, 1)) +
@@ -94,7 +94,7 @@ ggplot(gatheredData, aes(x = datehour, y = N_TER, color = station)) +
 ggplot(gatheredData, aes(x = datehour, y = FK_TER, color = station)) +
     ggtitle("Windgeschwindigkeiten aller Stationen") +
     # geom_line(alpha = 0.6) +
-    geom_smooth(se = FALSE) +
+    geom_smooth(se = FALSE, span=0.8) +
     # geom_point() +
     coord_cartesian(ylim = c(0, 12)) +
     scale_y_continuous(breaks = seq(0, 12, 1)) +
