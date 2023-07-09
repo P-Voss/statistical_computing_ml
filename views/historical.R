@@ -2,7 +2,8 @@
 library('dplyr')
 library('ggplot2')
 
-
+# extra Funktion in dieser Datei, weil zusätzlich nach station gruppiert wird
+# Funktion aus singleSourceAggregation gruppiert nur nach date
 transformToAvgValues <- function(data) {
     avg_values <- data %>%
         group_by(date, station) %>%
