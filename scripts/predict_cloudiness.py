@@ -65,6 +65,8 @@ for station in stations:
     df.set_index('date', inplace=True)
     df.index = df.index.astype(str)
 
+    count = df.shape[0]
+    i = 1
     data = []
     for single_date in daterange(startDate, endDate):
         season = getSeason(single_date.month)
@@ -114,6 +116,10 @@ for station in stations:
                         'trend': normalizeValue(row['coverage'])
                     }
                 )
+
+                print("finished {} from {} for {}".format(i, count, station["name"]))
+                i = i + 1
+
     df_predictions = pandas.DataFrame(data)
     df_predictions.to_csv(predictionFileFormat.format(station['name']), index=False, sep=';')
 
