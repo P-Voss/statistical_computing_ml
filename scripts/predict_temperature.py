@@ -41,7 +41,7 @@ stations = [
 ]
 
 startDate = date(2023, 1, 1)
-endDate = date(2023, 12, 31)
+endDate = date(2024, 1, 1)
 with open(reportFilePath) as file:
     report = json.load(file)
 
