@@ -1,5 +1,5 @@
 
-
+# Bibliothek für gleitende Varianz - rollapply
 library('zoo')
 
 source("views/functions/singleSourceAggregations.R")

@@ -1,5 +1,6 @@
 
 library('dplyr')
+# Bibliothek zum Formatieren von DataFrames - Pivot
 library('tidyr')
 library('ggplot2')
 

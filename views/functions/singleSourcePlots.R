@@ -32,7 +32,6 @@ scatterPlot <- function (file, data) {
     return(plot)
 }
 
-
 exactDiagram <- function (file, data, lowerLimit, upperLimit, steps, xlab, ylab) {
     plot <- ggplot(data, aes(x = data$date)) +
         ggtitle(file) +

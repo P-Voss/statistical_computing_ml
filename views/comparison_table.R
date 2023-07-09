@@ -27,6 +27,7 @@ scores <- rbind(
     konstanz,
     ueckermuende
 )
+scores <- drop_na(scores)
 
 sortedScores <- scores[order(scores$score),]
 
