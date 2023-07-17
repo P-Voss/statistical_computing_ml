@@ -33,6 +33,28 @@ def getCoverageClass(value):
     else:
         return 4
 
+
+def getMetricWindStr(val):
+    beaufortScale = {
+        0: (0, 0.2),
+        1: (0.3, 1.5),
+        2: (1.6, 3.3),
+        3: (3.4, 5.4),
+        4: (5.5, 7.9),
+        5: (8.0, 10.7),
+        6: (10.8, 13.8),
+        7: (13.9, 17.1),
+        8: (17.2, 20.7),
+        9: (20.8, 24.4),
+        10: (24.5, 28.4),
+        11: (28.5, 32.6),
+        12: (32.7, 40),
+    }
+
+    for key, (lower, upper) in beaufortScale.items():
+        if key == int(float(val)):
+            return (lower + upper) / 2
+
 def to_date_time(date_str):
     return datetime.strptime(date_str, '%Y%m%d%H')
 
@@ -101,9 +123,11 @@ for station in stations:
                 float(row["RF_TER"]),
                 getCoverageClass(int(float(row["N_TER"]))),
                 int(float(row["N_TER"])),
+                float(row["N_TER"]) * 12.5,
                 float(row["VK_TER"]),
                 float(row["DK_TER"]),
                 float(row["FK_TER"]),
+                float(getMetricWindStr(row["FK_TER"])),
                 float(rain),
             )
             formatted_data.append(formatted_row)
@@ -126,9 +150,11 @@ for station in stations:
         'humidity',
         'coverage_class',
         'coverage',
+        'coverage_percent',
         'range',
         'wind_dir',
         'wind_str',
+        'wind_str_metric',
         'prec'
     ]
     with open(trainingFileFormat.format(station['name']), 'w', newline='') as csv_file:

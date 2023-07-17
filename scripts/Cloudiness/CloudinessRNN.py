@@ -25,11 +25,12 @@ class CloudinessRNN:
         data = pandas.get_dummies(data, columns=['season'])
 
         # Zieldaten
-        target = data['coverage']
+        # target = data['coverage']
+        target = data['coverage_percent']
 
         # Feature Daten
         features = data[['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                         'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'wind_str', 'prec']]
+                        'humidity', 'temp', 'wind_dir', 'wind_str', 'prec']]
 
         scaler = StandardScaler()
         # scaler = MinMaxScaler()

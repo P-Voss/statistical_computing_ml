@@ -12,8 +12,9 @@ lapply(files, function (file) {
     dataset$datehour <- as.POSIXct(strptime(dataset$datehour, format="%Y%m%d%H"))
 
     values <- transformToAvgValues(dataset)
+    # values <- transformToMaxValues(dataset)
 
-    plot <- exactDiagram(file, values, 0, 12, 1, "Monat in 2023", "Windstaerke (Bft)")
+    plot <- exactDiagram(file, values, 0, 36, 3, "Monat in 2023", "m/s")
 
 })
 

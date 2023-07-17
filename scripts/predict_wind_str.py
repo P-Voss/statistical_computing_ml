@@ -89,12 +89,11 @@ for station in stations:
                 row['hour_cos'] = numpy.cos(2 * numpy.pi * single_hour / 24)
 
                 features = row[
-                    ['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                     'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'coverage', 'range', 'prec']]
+                    ['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos', 'temp', 'humidity', 'wind_dir', 'coverage', 'range']
+                ]
                 features = pandas.DataFrame([features], columns=[
-                    'season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                    'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'coverage', 'range', 'prec'
-                ])
+                    'season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos', 'temp', 'humidity', 'wind_dir', 'coverage', 'range']
+                )
                 # Skalieren Sie Ihre Vorhersagedaten
                 features = scaler.transform(features)
 
@@ -109,12 +108,13 @@ for station in stations:
                         'datehour': single_date.strftime('%Y%m%d') + str(single_hour).rjust(2, '0'),
                         'date': single_date.strftime('%Y-%m-%d'),
                         'hour': single_hour,
-                        'prediction': normalizeValue(prediction[0][0]),
-                        'upper_bound_mae': normalizeValue(prediction[0][0] + mae),
-                        'lower_bound_mae': normalizeValue(prediction[0][0] - mae),
-                        'upper_bound_confidence_90': normalizeValue(upperConfidence),
-                        'lower_bound_confidence_90': normalizeValue(lowerConfidence),
-                        'trend': row['wind_str']
+                        'prediction': prediction[0][0],
+                        'upper_bound_mae': prediction[0][0] + mae,
+                        'lower_bound_mae': prediction[0][0] - mae,
+                        'upper_bound_confidence_90': upperConfidence,
+                        'lower_bound_confidence_90': lowerConfidence,
+                        'trend': row['wind_str_metric'],
+                        'trend_class': row['wind_str']
                     }
                 )
 

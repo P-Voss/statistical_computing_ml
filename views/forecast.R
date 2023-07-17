@@ -2,15 +2,15 @@
 source("views/functions/completePlot.R")
 
 # Maße und Auflösung per Experimentieren finden
-savePlot <- function (plot, name) {
-    filepath <- paste0("data/plots/forecasts/complete_", name, ".png")
-    png(filepath, res = 200, height = 600, width = 900)
+savePlot <- function (plot, filepath) {
+    png(filepath, res = 150, height = 860, width = 1900)
     print(plot)
     dev.off()
 }
 
 plot <- generatePlot("Arkona")
 print(plot)
+# savePlot(plot, "data/plots/forecasts/complete_saved_Arkona.png")
 
 plot <- generatePlot("Boltenhagen")
 print(plot)

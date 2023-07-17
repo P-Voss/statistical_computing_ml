@@ -33,7 +33,7 @@ class TemperatureRNN:
 
         # Feature Daten
         features = data[['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                         'prev_temp', 'prev_hum', 'humidity', 'coverage', 'wind_dir', 'wind_str', 'prec']]
+                         'prev_temp', 'prev_hum', 'humidity', 'coverage', 'wind_dir', 'prec']]
 
         scaler = StandardScaler()
         features = scaler.fit_transform(features)

@@ -13,7 +13,7 @@ lapply(files, function (file) {
 
     values <- transformToAvgValues(dataset)
 
-    plot <- exactDiagram(file, values, 0, 8, 1, "Monat in 2023", "Bedeckungsgrad")
+    plot <- exactDiagram(file, values, 0, 100, 5, "Monat in 2023", "Bedeckungsgrad")
 
 })
 

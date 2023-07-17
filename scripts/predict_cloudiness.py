@@ -19,7 +19,7 @@ def getSeason(month):
         return 2
     return 3
 
-# Bewölkungsgrad liegt zwischen 0 und 8
+# Bedeckungsgrad liegt zwischen 0 und 8
 def normalizeValue(value):
     return min(
         8,
@@ -29,6 +29,15 @@ def normalizeValue(value):
         )
     )
 
+# Prozentwert liegt zwischen 0 und 100
+def normalizePercent(value):
+    return min(
+        100,
+        max(
+            0,
+            value
+        )
+    )
 
 trendFileFormat = '../data/trend/{}.csv'
 modelFileFormat = 'Cloudiness/training/{}/model.h5'
@@ -88,11 +97,9 @@ for station in stations:
                 row['hour_cos'] = numpy.cos(2 * numpy.pi * single_hour / 24)
 
                 features = row[
-                    ['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                     'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'wind_str', 'prec']]
+                    ['season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos', 'humidity', 'temp', 'wind_dir', 'wind_str', 'prec']]
                 features = pandas.DataFrame([features], columns=[
-                    'season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos',
-                    'prev_temp', 'prev_hum', 'humidity', 'temp', 'wind_dir', 'wind_str', 'prec'
+                    'season_1', 'season_2', 'season_3', 'season_4', 'year', 'month', 'day', 'hour_sin', 'hour_cos', 'humidity', 'temp', 'wind_dir', 'wind_str', 'prec'
                 ])
                 # Skalieren Sie Ihre Vorhersagedaten
                 features = scaler.transform(features)
@@ -108,12 +115,13 @@ for station in stations:
                         'datehour': single_date.strftime('%Y%m%d') + str(single_hour).rjust(2, '0'),
                         'date': single_date.strftime('%Y-%m-%d'),
                         'hour': single_hour,
-                        'prediction': normalizeValue(prediction[0][0]),
-                        'upper_bound_mae': normalizeValue(prediction[0][0] + mae),
-                        'lower_bound_mae': normalizeValue(prediction[0][0] - mae),
-                        'upper_bound_confidence_90': normalizeValue(upperConfidence),
-                        'lower_bound_confidence_90': normalizeValue(lowerConfidence),
-                        'trend': normalizeValue(row['coverage'])
+                        'prediction': normalizePercent(prediction[0][0]),
+                        'upper_bound_mae': normalizePercent(prediction[0][0] + mae),
+                        'lower_bound_mae': normalizePercent(prediction[0][0] - mae),
+                        'upper_bound_confidence_90': normalizePercent(upperConfidence),
+                        'lower_bound_confidence_90': normalizePercent(lowerConfidence),
+                        'trend': row['coverage_percent'],
+                        'trend_class': normalizeValue(row['coverage'])
                     }
                 )
 

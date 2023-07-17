@@ -4,6 +4,7 @@ library('tidyr')
 library('lubridate')
 library('dplyr')
 library('ggplot2')
+library('plotly')
 
 source("views/functions/singleSourceAggregations.R")
 source("views/functions/scoring.R")
@@ -50,6 +51,7 @@ source("views/functions/scoring.R")
 }
 
 
+
 generatePlot <- function (stationName) {
     data <- .readStation(stationName)
     scores <- loadScores(stationName)
@@ -66,7 +68,7 @@ generatePlot <- function (stationName) {
         scale_y_continuous(breaks = seq(-5, 30, 1)) +
 
         # vertikale Linien an den Anfang und das Ende des Intervalls mit dem niedrigsten Score zeichnen
-        # geom_rect() wäre evtl schöner; entsprechende min- und max- Werter für Höhe der Box erfassen
+        # todo (?): geom_rect() wäre evtl schöner; entsprechende min- und max- Werter für Höhe der Box erfassen
         geom_vline(aes(xintercept = as.numeric(min_score_interval$begin)), linetype = "dashed", color = "red", linewidth = 1.0) +
         geom_vline(aes(xintercept = as.numeric(min_score_interval$end)), linetype = "dashed", color = "red", linewidth = 1.0) +
 
@@ -82,3 +84,35 @@ generatePlot <- function (stationName) {
         )
     return(plot)
 }
+
+
+# Diagramm per Plotly generieren? Erlaubt eine zweite Skala für bft. oder Bedeckungsgrad
+# generatePlotly <- function (stationName) {
+#     data <- .readStation(stationName)
+#     scores <- loadScores(stationName)
+#     min_score_interval <- scores[which.min(scores$score), c("begin", "end")]
+#
+#     pivottedData <- .pivotData(data)
+#
+#
+#     p <- plot_ly()
+#
+#     for (variable in unique(pivottedData$variable)) {
+#         if (variable == "Temperatur") {
+#             p <- add_trace(p, data = pivottedData[pivottedData$variable == variable, ],
+#                             x = ~date, y = ~value, type = 'scatter', mode = 'lines',
+#                             line = list(color = 'red'), name = variable, yaxis = 'y1')
+#         } else {
+#             p <- add_trace(p, data = pivottedData[pivottedData$variable == variable, ],
+#                             x = ~date, y = ~value, type = 'scatter', mode = 'lines',
+#                             line = list(color = ifelse(variable == "Bedeckungsgrad", 'blue', 'green')),
+#                             name = variable, yaxis = 'y2')
+#         }
+#     }
+#
+#     p <- layout(p, title = paste("Vorhersage: Wetter in", stationName, "2023"),
+#                 yaxis = list(title = 'Temperatur'),
+#                 yaxis2 = list(title = 'Bedeckungsgrad / Windgeschwindigkeit', overlaying = 'y', side = 'right'))
+#
+#     return(p)
+# }
