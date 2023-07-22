@@ -28,7 +28,7 @@ source("views/functions/singleSourceAggregations.R")
     variance <- .normalize(variance)
 
     # Teilt die Tagesdaten in 14-Tages-Intervalle auf, werden später den Varianzen hinzugefügt
-    # nicht ändern
+    # (nicht ändern)
     date_frame <- rollapply(date_values, width = 14, FUN = function(x) {
         c(startDate = as.Date(head(x, 1)),
           endDate = as.Date(tail(x, 1)))
@@ -49,18 +49,19 @@ source("views/functions/singleSourceAggregations.R")
 }
 
 # private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
-# Standardisiert die Varianzen, um Gewichtung auf Temperatur aufzulösen
-.standardize <- function(x) {
-    return((x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE))
-}
-
-# private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
 # normalisiert die Varianzen, um Gewichtung insb. für Temperatur aufzulösen
 # Faktor 10, um für die spätere Anzeige einen höheren Score zwischen 0 und 10 zu erhalten (je Wetteraspekt)
+# @todo Normalisiert aktuell auf Basis des 14-Tage Sets, Gesamtset macht wahrscheinlich mehr Sinn?
 .normalize <- function(variance) {
     return (
         10 * ((variance - min(variance, na.rm = TRUE)) / (max(variance, na.rm = TRUE) - min(variance, na.rm = TRUE)))
     )
+}
+
+# private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
+# Standardisiert die Varianzen, um Gewichtung auf Temperatur aufzulösen
+.standardize <- function(x) {
+    return((x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE))
 }
 
 
