@@ -31,7 +31,7 @@ source("views/functions/scoring.R")
 
     stationData <- data.frame(
         date = cloudinessDf$date,
-        Bedeckungsgrad = cloudinessDf$prediction,
+        Bedeckungsgrad = cloudinessDf$prediction / 12.5,
         Windgeschwindigkeit = windDf$prediction,
         Temperatur = tempDf$prediction,
         station = stationName
@@ -55,7 +55,7 @@ source("views/functions/scoring.R")
 generatePlot <- function (stationName) {
     data <- .readStation(stationName)
     scores <- loadScores(stationName)
-    min_score_interval <- scores[which.min(scores$score), c("begin", "end")]
+    min_score_interval <- scores[which.min(scores$Gesamt), c("begin", "end")]
 
     pivottedData <- .pivotData(data)
 
@@ -73,10 +73,10 @@ generatePlot <- function (stationName) {
         geom_vline(aes(xintercept = as.numeric(min_score_interval$end)), linetype = "dashed", color = "red", linewidth = 1.0) +
 
         # horizontale Linie zur Kennzeichnung des 0-Wertes
-        geom_hline(yintercept = 0, linetype = "solid", color = "lightblue", size = 0.5) +
+        geom_hline(yintercept = 0, linetype = "solid", color = "lightblue", linewidth = 0.5) +
 
         scale_x_date(date_breaks = "1 month", date_labels = "%b") +
-        labs(title = label, x = "Date", y = "Value", colour = "Wetterfaktoren") +
+        labs(title = label, x = "Monate (2023)", y = "", colour = "Wetterfaktoren") +
         theme_bw() +
         theme(plot.title = element_text(size = 20, face = "bold"),
             axis.title = element_text(size = 12),

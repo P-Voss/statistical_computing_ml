@@ -18,23 +18,23 @@ konstanz <- loadScores("Konstanz")
 ueckermuende <- loadScores("Ueckermuende")
 
 lowestScores <- rbind(
-    arkona = arkona[which.min(arkona$score), ],
-    boltenhagen = boltenhagen[which.min(boltenhagen$score), ],
-    cuxhaven = cuxhaven[which.min(cuxhaven$score), ],
-    emden = emden[which.min(emden$score), ],
-    fehmarn = fehmarn[which.min(fehmarn$score), ],
-    hattstedt = hattstedt[which.min(hattstedt$score), ],
-    hohwacht = hohwacht[which.min(hohwacht$score), ],
-    karlshagen = karlshagen[which.min(karlshagen$score), ],
-    konstanz = konstanz[which.min(konstanz$score), ],
-    ueckermuende = ueckermuende[which.min(ueckermuende$score), ]
+    arkona = arkona[which.min(arkona$Gesamt), ],
+    boltenhagen = boltenhagen[which.min(boltenhagen$Gesamt), ],
+    cuxhaven = cuxhaven[which.min(cuxhaven$Gesamt), ],
+    emden = emden[which.min(emden$Gesamt), ],
+    fehmarn = fehmarn[which.min(fehmarn$Gesamt), ],
+    hattstedt = hattstedt[which.min(hattstedt$Gesamt), ],
+    hohwacht = hohwacht[which.min(hohwacht$Gesamt), ],
+    karlshagen = karlshagen[which.min(karlshagen$Gesamt), ],
+    konstanz = konstanz[which.min(konstanz$Gesamt), ],
+    ueckermuende = ueckermuende[which.min(ueckermuende$Gesamt), ]
 )
 
 # print(lowestScores)
 
 # Daten von Spalten in Zeilen pivotieren, damit sie im Diagramm dargestellt werden können
 lowestScoresPlot <- lowestScores %>%
-    tidyr::pivot_longer(cols = c(wind_var, cloudiness_var, temp_var, score),
+    tidyr::pivot_longer(cols = c(Windgeschwindigkeit, Bedeckung, Temperatur, Gesamt),
                       names_to = "Variable",
                       values_to = "Value")
 
@@ -51,8 +51,9 @@ lowestScoresPlot$label <- paste(
 # Plot
 ggplot(lowestScoresPlot, aes(x = reorder(label, Value), y = Value, fill = Variable)) +
     geom_bar(stat = "identity", position = "dodge") +
-    theme_minimal() +
-    xlab("Wetterstation") +
+    theme_bw() +
+    xlab("Wetterstation und Zeitraum") +
     ylab("Variabilitaet") +
+    labs(fill = "Variabilitaetsscores") +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
     ggtitle("geringste 2-woechige Variabilitaet in 2023 je Wetterstation")

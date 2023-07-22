@@ -1,6 +1,7 @@
 
 # Bibliothek zur Darstellung von (schönen) Tabellen
 library(knitr)
+library(tidyr)
 
 source("views/functions/scoring.R")
 
@@ -29,6 +30,6 @@ scores <- rbind(
 )
 scores <- drop_na(scores)
 
-sortedScores <- scores[order(scores$score),]
+sortedScores <- scores[order(scores$Gesamt),]
 
-kable(sortedScores[1:25, ])
+kable(sortedScores[1:25, 1:7])

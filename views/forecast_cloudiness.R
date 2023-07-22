@@ -1,7 +1,4 @@
 
-library('dplyr')
-library('ggplot2')
-
 source("views/functions/singleSourceAggregations.R")
 source("views/functions/singleSourcePlots.R")
 
@@ -11,9 +8,10 @@ lapply(files, function (file) {
     dataset <- read.csv(file, sep=";", head=TRUE)
     dataset$datehour <- as.POSIXct(strptime(dataset$datehour, format="%Y%m%d%H"))
 
-    values <- transformToAvgValues(dataset)
+    values <- transformToMinValues(dataset)
 
-    plot <- exactDiagram(file, values, 0, 100, 5, "Monat in 2023", "Bedeckungsgrad")
+    # plot <- exactDiagram(file, values, 0, 100, 5, "Monat in 2023", "Bedeckungsgrad")
+    plot <- areaDiagram(file, values, 0, 100, 5, "Monate (2023)", "Bedeckung in Prozent")
 
 })
 

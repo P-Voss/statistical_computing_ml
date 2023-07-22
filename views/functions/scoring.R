@@ -14,20 +14,24 @@ source("views/functions/singleSourceAggregations.R")
 }
 
 # private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
-.transformToRollingVariance <- function(data) {
+.transformToRollingScore <- function(data) {
     date_values <- data$date
     prediction_values <- data$prediction
 
-    # Ermittelt gleitende Varianzen über 14-Tages-Intervalle
-    # (nicht ändern)
-    variance <- rollapply(prediction_values, width = 14, FUN = function(x) {
-        var(x, na.rm = TRUE)
+    # maxValue <- max(prediction_values)
+    # minValue <- min(prediction_values)
+    # mean <- mean(prediction_values)
+
+    # Ermittelt gleitenden Variationskoeffizient über 14-Tages-Intervalle
+    # (nicht ändern - oder auch Scorenormalisierung ändern)
+    relStdDev <- rollapply(prediction_values, width = 14, FUN = function(x) {
+        sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)
     }, fill = NA, align = "right")
 
-    # Normalisiert die Varianzen (nach Bedarf ändern oder entfernen)
-    variance <- .normalize(variance)
+    # Normalisiert Lagemaß um Score zu ermitteln (nach Bedarf ändern)
+    score <- .normalizeRelative(relStdDev)
 
-    # Teilt die Tagesdaten in 14-Tages-Intervalle auf, werden später den Varianzen hinzugefügt
+    # Teilt die Tagesdaten in 14-Tages-Intervalle auf, werden den Scores zugeordnet
     # (nicht ändern)
     date_frame <- rollapply(date_values, width = 14, FUN = function(x) {
         c(startDate = as.Date(head(x, 1)),
@@ -37,7 +41,7 @@ source("views/functions/singleSourceAggregations.R")
     date_frame_df <- data.frame(date_frame)
 
     result <- data.frame(
-        variance = variance,
+        score = score,
         startDate = date_frame_df$startDate,
         endDate = date_frame_df$endDate
     )
@@ -52,9 +56,28 @@ source("views/functions/singleSourceAggregations.R")
 # normalisiert die Varianzen, um Gewichtung insb. für Temperatur aufzulösen
 # Faktor 10, um für die spätere Anzeige einen höheren Score zwischen 0 und 10 zu erhalten (je Wetteraspekt)
 # @todo Normalisiert aktuell auf Basis des 14-Tage Sets, Gesamtset macht wahrscheinlich mehr Sinn?
-.normalize <- function(variance) {
+.normalizeVariance <- function(variance) {
     return (
         10 * ((variance - min(variance, na.rm = TRUE)) / (max(variance, na.rm = TRUE) - min(variance, na.rm = TRUE)))
+    )
+}
+
+# private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
+# normalisiert die Standardabweichung in Relation zu Höchst- und Mindestwerten des Datensets
+# Faktor 10, um für die spätere Anzeige einen höheren Score zwischen 0 und 10 zu erhalten (je Wetteraspekt)
+.normalizeMinMaxTotal <- function(value, min, max) {
+    return (
+        10 * ((value - min) / (max - min))
+    )
+}
+
+# private Funktion, nur für Aufrufe innerhalb dieser Datei vorgesehen
+# normalisiert die relative Standardabweichung gegen Höchstwerte der relativen Standardabweichungen
+# Faktor 10, um für die spätere Anzeige einen höheren Score zwischen 0 und 10 zu erhalten (je Wetteraspekt)
+.normalizeRelative <- function(relStdDev) {
+    return (
+        10 * ((relStdDev - min(relStdDev, na.rm = TRUE)) /
+        (max(relStdDev, na.rm = TRUE) - min(relStdDev, na.rm = TRUE)))
     )
 }
 
@@ -68,23 +91,24 @@ source("views/functions/singleSourceAggregations.R")
 loadScores <- function (stationName) {
     cloudinessFilename <- paste0("data/trend/cloudiness/", stationName, "_prediction.csv")
     cloudinessDf <- .readFile(cloudinessFilename)
-    cloudinessVar <- .transformToRollingVariance(cloudinessDf)
+    cloudinessVar <- .transformToRollingScore(cloudinessDf)
 
     windFilename <- paste0("data/trend/wind/", stationName, "_prediction.csv")
     windDf <- .readFile(windFilename)
-    windVar <- .transformToRollingVariance(windDf)
+    windVar <- .transformToRollingScore(windDf)
 
     tempFilename <- paste0("data/trend/temperature/", stationName, "_prediction.csv")
     tempDf <- .readFile(tempFilename)
-    tempVar <- .transformToRollingVariance(tempDf)
+    tempVar <- .transformToRollingScore(tempDf)
 
+    # hier Bezeichnungen für spätere Labels vergeben
     scores <- data.frame(
         begin = cloudinessVar$startDate,
         end = cloudinessVar$endDate,
-        cloudiness_var = cloudinessVar$var,
-        wind_var = windVar$var,
-        temp_var = tempVar$var,
-        score = cloudinessVar$var + windVar$var + tempVar$var,
+        Bedeckung = cloudinessVar$score,
+        Windgeschwindigkeit = windVar$score,
+        Temperatur = tempVar$score,
+        Gesamt = cloudinessVar$score + windVar$score + tempVar$score,
         station = stationName
     )
 

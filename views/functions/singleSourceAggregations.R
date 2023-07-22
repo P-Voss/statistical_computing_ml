@@ -1,4 +1,6 @@
 
+library('dplyr')
+
 transformToMaxValues <- function(data) {
     max_values <- data %>%
       group_by(date) %>%
